@@ -2,22 +2,46 @@
 
 <html>
 	<head>
-		<title>Page Title</title>
+		<title>Birds of Paradise</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/reset.css">
+<!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
         <link rel="stylesheet" type="text/css" href="css/style.css" >
 	</head>
 
 	<body>
+        <div class="container">
+        
+            <h1>Birds of Paradise Hangman</h1>
+            
+            <div>
+                <div class="metricsGuage">
+                    <p>Wins: <span id="wins"></span></p>
+                </div>
+                
+                <div class="metricsGuage">
+                    <p>Losses: <span id="losses"></span></p>
+                </div>
+                
+                <div class="metricsGuage">
+                    <p>Misses <span id="missesRemaining"></span></p>
+                </div>
+                
+                <div class="longMetricsGuage">
+                    <p>Guessed: <span id="lettersGuessed"></span></p>
+                </div>
+                
+            </div>
 
-        <h1>Hangman</h1>
+            <div class="wordBoxes">
+                <p>Word:</p>
+                <div id="boxes"></div>
+            </div>
 
-        <p>Wins: <span id="wins"></span></p>
-        <p>Misses Remaining: <span id="missesRemaining"></span></p>
-        <p>Letters Guessed: <span id="lettersGuessed"></span></p>
-        <p>Word: <span id="targetWord"></span></p>
-        <div id="boxes"></div>
+            
+        </div>
+
         
         
         

@@ -1,20 +1,32 @@
+body {
+    background-color: darkseagreen;
+}
+.container {
+    width: 960px;
+    margin: 60px auto;
+    align-content: center;
+}
+
 h1 {
+    font-size: 2em;
     color: red;
+    text-align: center;
+    margin-bottom: 50px;
 }
 
 .targetWordLetter {
-    background: red;
-    height: 40px;
-    width: 30px
-    border: 1px solid grey;
+    background: white;
+    height: 30px;
+    width: 20px;
+    border: 3px solid grey;
     float: left;
     margin-right: 20px;
-    padding: 30px 20px 20px;
+    padding: 15px 20px 20px;
     font-size: 40px;
     color: transparent;
 }
 
-.targetWordLetterVis {
-    color: white;
+.wordBoxes {
+    margin-top: 100px;
 }
 

@@ -53,7 +53,13 @@ var objects = [bird1, bird2, bird3, bird4, bird5, bird6];
 
 // Variable to track wins and write to screen
 var wins = 0;
-document.querySelector("#wins").innerHTML = wins;
+
+
+
+
+// Variable to track wins and write to screen
+var losses = 0;
+document.querySelector("#losses").innerHTML = losses;
 
 
 
@@ -75,6 +81,9 @@ var targetWord;
 
 // This is an array of the letters of the word to be guessed
 var targetArray = [];
+
+
+var correctCounter = 0;
 
 
 
@@ -113,7 +122,15 @@ var targetArray = [];
         }
     }
 
+    
+    function winCheck() {
 
+        if(correctCounter === targetArray.length) {
+           console.log("You win");
+            wins++;
+            document.querySelector("#wins").innerHTML = wins;
+           }
+    }
 
 
 
@@ -128,20 +145,33 @@ document.onkeyup = function(event) {
     var playerGuess = event.key;
     if(targetArray.indexOf(playerGuess)!==-1){
         for(var i = 0; i < targetArray.length; i++) {
-            if(targetArray[i].includes(playerGuess)) {
+  
+            if(targetArray[i]==(playerGuess)) {
+                console.log(targetArray[i]);
                 var targetDiv = document.getElementById("letterbox" + [i]);
                 console.log(targetDiv);
                 targetDiv.style.color="black";
-                console.log(playerGuess);
+                correctCounter++;
             }
         }
     } else {
         console.log("wrong");
         missesCount++;
-        missesRemaining = missesPool - missesCount;
-        document.querySelector("#missesRemaining").innerHTML = missesRemaining;
+        
+        if(missesRemaining === 0) {
+            console.log("you lose");
+            losses++;
+            document.querySelector("#losses").innerHTML = losses;
+           }else {
+            missesRemaining = missesPool - missesCount;
+            document.querySelector("#missesRemaining").innerHTML = missesRemaining;
+           }
+
         
     }
+                
+    
+    winCheck();
     
     guessArray.push(playerGuess);
     
@@ -169,9 +199,13 @@ document.onkeyup = function(event) {
     
 selectBird(objects);
 
-document.querySelector("#targetWord").innerHTML = targetWord;
+//document.querySelector("#targetWord").innerHTML = targetWord;
     
-    
+//missesRemaining = 0;
+//document.querySelector("#missesRemaining").innerHTML = missesRemaining;
+document.querySelector("#losses").innerHTML = losses;
+
+
     
     
     
