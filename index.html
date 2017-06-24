@@ -5,6 +5,7 @@
 		<title>Birds of Paradise</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/reset.css">
 <!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
         <link rel="stylesheet" type="text/css" href="css/style.css" >
@@ -16,29 +17,42 @@
             <h1>Birds of Paradise Hangman</h1>
             
             <div>
-                <div class="metricsGuage">
-                    <p>Wins: <span id="wins"></span></p>
+                
+                <div id="winBox">
+                <p>Wins</p>
+                <span class="metricsGuage" id="wins"></span>
                 </div>
                 
-                <div class="metricsGuage">
-                    <p>Losses: <span id="losses"></span></p>
+                <div id="lossBox">
+                <p>Losses</p>
+                <span class="metricsGuage" id="losses"></span>
                 </div>
                 
-                <div class="metricsGuage">
-                    <p>Misses <span id="missesRemaining"></span></p>
+                <div id="missesBox">
+                    <p>Chances Left</p>
+                    <span class="metricsGuage" id="missesRemaining"></span>
                 </div>
                 
-                <div class="longMetricsGuage">
-                    <p>Guessed: <span id="lettersGuessed"></span></p>
+                <div id="guessedBox">
+                    <p>Letters Guessed</p>
+                    <span class="metricsGuage" id="lettersGuessed"></span>
                 </div>
-                
+                    
             </div>
 
-            <div class="wordBoxes">
+            <div class="wordBoxes" id="word">
                 <p>Word:</p>
                 <div id="boxes"></div>
             </div>
 
+            
+            <button type="button" id="startButton">
+                <span id="button" onclick="startGame()"></span>
+            </button>
+            
+            <div id="userMessage">
+                <span id="message"></span>
+            </div>
             
         </div>
 

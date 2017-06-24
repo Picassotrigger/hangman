@@ -59,7 +59,7 @@ var wins = 0;
 
 // Variable to track wins and write to screen
 var losses = 0;
-document.querySelector("#losses").innerHTML = losses;
+
 
 
 
@@ -86,6 +86,9 @@ var targetArray = [];
 var correctCounter = 0;
 
 
+var buttonMessage = "Start";
+
+
 
 
 
@@ -98,6 +101,7 @@ var correctCounter = 0;
         targetWord = (arr[Math.floor(Math.random() * 6)]).name;
         console.log(targetWord);
         buildTargetArray();
+        
     }
 
 
@@ -120,21 +124,28 @@ var correctCounter = 0;
             newDiv.innerHTML = targetArray[i];
             boxes.appendChild(newDiv);
         }
+        document.querySelector("#missesRemaining").innerHTML = missesRemaining;
     }
 
     
     function winCheck() {
 
         if(correctCounter === targetArray.length) {
-           console.log("You win");
+           document.getElementById("message").innerHTML = "You win";
             wins++;
             document.querySelector("#wins").innerHTML = wins;
+            buttonMessage = "Play Again"
+            document.querySelector("#button").innerHTML = buttonMessage;
            }
     }
 
+    
 
-
-
+    function startGame() {
+        var buttonReset = document.querySelector("#startButton");
+        buttonReset.setAttribute("onclick", "disabled");
+        selectBird(objects);
+    }
 
 
 
@@ -159,9 +170,9 @@ document.onkeyup = function(event) {
         missesCount++;
         
         if(missesRemaining === 0) {
-            console.log("you lose");
             losses++;
             document.querySelector("#losses").innerHTML = losses;
+            document.getElementById("message").innerHTML = "You lose";
            }else {
             missesRemaining = missesPool - missesCount;
             document.querySelector("#missesRemaining").innerHTML = missesRemaining;
@@ -196,18 +207,17 @@ document.onkeyup = function(event) {
     
 // START GAME
 // ================================================================================
-    
-selectBird(objects);
 
-//document.querySelector("#targetWord").innerHTML = targetWord;
-    
-//missesRemaining = 0;
-//document.querySelector("#missesRemaining").innerHTML = missesRemaining;
+
+//selectBird(objects);
+
+document.querySelector("#wins").innerHTML = wins;
+
 document.querySelector("#losses").innerHTML = losses;
 
+document.querySelector("#button").innerHTML = buttonMessage;
 
-    
-    
+
     
     
     
